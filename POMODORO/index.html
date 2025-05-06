@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB POMODORO FATH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="pomodoro-container">
+        <div class="timer">
+            <svg class="progress-ring" width="220" height="220">
+               <circle
+                  class="progress-ring__circle-bg"
+                  stroke="#444B6F"
+                  stroke-width="8"
+                  fill="transparent"
+                  r="100"
+                  cx="110"
+                  cy="110"/>
+               <circle
+                  class="progress-ring__circle"
+                  stroke="#F87070" Warna default (Focus)
+                  stroke-width="8"
+                  fill="transparent"
+                  r="100"
+                  cx="110"
+                  cy="110"/>
+            </svg>
+            <div class="time-display" id="time-left">25:00</div>
+            <div class="mode-display" id="mode">FOCUS</div>
+        </div>
+
+        <div class="controls">
+            <!-- Tombol akan diubah ikonnya oleh JS -->
+            <button id="start-pause-btn" class="control-button large-button">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="reset-btn" class="control-button reset-button" title="Reset">
+                <i class="fas fa-redo"></i>
+            </button>
+             <!-- Kita tambahkan tombol mode nanti jika diperlukan -->
+        </div>
+
+        <!-- Indikator ronde sederhana -->
+        <div class="rounds-display">
+            Ronde: <span id="round-count">0</span> / <span id="total-rounds">4</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

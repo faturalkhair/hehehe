@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap'); /* Contoh font */
+
+:root {
+    --bg-color: #1E213F; /* Background utama */
+    --timer-bg: #272C4D; /* Background area timer */
+    --text-color: #D7E0FF;
+    --focus-color: #F87070; /* Merah untuk Focus */
+    --short-break-color: #70F3F8; /* Hijau/Cyan untuk Short Break */
+    --long-break-color: #D881F8; /* Ungu untuk Long Break */
+    --button-hover: #3a4063;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.pomodoro-container {
+    background-color: var(--timer-bg);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 350px; /* Batas lebar maksimum */
+}
+
+.timer {
+    position: relative;
+    width: 220px; /* Sesuaikan dengan ukuran SVG */
+    height: 220px;
+    margin: 20px auto 30px; /* Jarak atas/bawah, auto kiri/kanan */
+    display: flex; /* Untuk menengahkan teks */
+    flex-direction: column;
+    justify-content: center; /* Tengah vertikal */
+    align-items: center; /* Tengah horizontal */
+}
+
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg); /* Mulai dari atas */
+}
+
+.progress-ring__circle {
+    transition: stroke-dashoffset 0.5s linear, stroke 0.5s ease;
+    stroke-linecap: round; /* Ujung garis melingkar */
+}
+
+.time-display {
+    font-size: 3.5em; /* Ukuran waktu besar */
+    font-weight: bold;
+    line-height: 1;
+    position: relative; /* Agar tidak tertimpa SVG sepenuhnya */
+    z-index: 1;
+}
+
+.mode-display {
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    position: relative; /* Agar tidak tertimpa SVG sepenuhnya */
+    z-index: 1;
+    font-weight: 600;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Jarak antar tombol */
+    margin-bottom: 20px;
+}
+
+.control-button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    width: 70px; /* Ukuran tombol besar */
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-button.large-button {
+    font-size: 2.5em; /* Ikon lebih besar */
+}
+
+.control-button:hover {
+    background-color: var(--button-hover);
+}
+
+.reset-button {
+    font-size: 1.2em; /* Ikon reset lebih kecil */
+    width: 45px;
+    height: 45px;
+}
+
+
+.rounds-display {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* Class untuk mengubah warna progress bar */
+.focus-mode .progress-ring__circle { stroke: var(--focus-color); }
+.short-break-mode .progress-ring__circle { stroke: var(--short-break-color); }
+.long-break-mode .progress-ring__circle { stroke: var(--long-break-color); }
+
+.focus-mode .mode-display { color: var(--focus-color); }
+.short-break-mode .mode-display { color: var(--short-break-color); }
+.long-break-mode .mode-display { color: var(--long-break-color); }
